@@ -1,0 +1,264 @@
+*,::before, *::after {
+    box-sizing: border-box;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@media (min-width: 1440px) {
+  padding: 0 30px;
+}
+@media (min-width: 1688px) {
+  padding: 0px 60px;
+}
+@media (min-width: 2100px) {
+  height: auto;
+} 
+
+body {
+    margin: 0;
+    /*background-color: #111;*/
+}
+
+.videos{
+  width: calc(100% - 250px);
+  margin-top: 120px;
+  margin-left: 250px;
+  padding: 20px;
+  display: block;
+  grid-template-columns: repeat(4, 25%);
+  grid-gap: 20px 5px;
+  overflow-x: hidden;
+  
+}
+.video-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));/*thiết lập cột mẫu lưới chứa nhiều mục trên hàng nhất có thể auto tự động điền*/
+    gap: 3rem 1rem;/*k gian giữa các phần tử video khác với nhau*/
+    padding: 3rem 0;
+    margin: 0 1.5rem;
+    border-top: 4px solid #CCC;
+    min-height: 250px;
+    height: auto;
+}
+.video-section:first-child {
+    border-top: none;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    
+     /*tạo kiểu thay đổi màn hình hiển thị để uốn và hướng uốn của video*/
+    
+}
+.thumbnail {
+    position: relative;/*vị trí tương đối màn hình con .. thời gian .. */
+    display: flex;
+}
+.thumbnail::before {
+    content: attr(data-duration);/*nội dung bằng thời lượng hàm đính kèm */
+    position: absolute;/* gộp */
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    right: 5px;
+    bottom: 5px;
+    padding: .1em .3em;
+    border-radius: .3em;
+    font-size: .9rem;
+
+  }
+  .thumbnail-image { /*% hiển thị video*/
+    width: 100%;
+    height: 100%;
+    min-width: 250px;
+    min-height: 150px;
+    background-color: #AAA;
+  }
+  .video-bottom-section {/*img-logo:1rem*/
+    display: flex;
+    align-items: flex-start; /*đưa avar với tiêu dề lên chung 1 dòng*/
+    margin-top: 1rem; /*khoách cách giữa các ptu*/
+  }
+  .channel-icon {/*hiểN thị avatar*/
+    margin-right: .75rem;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    background-color: #AAA;
+  }
+  
+  .video-details {/*điều chỉnh hướng hiển thị, video xếp chồng lên nhau theo chiều dọc*/
+    display: flex;
+    flex-direction: column;
+  }
+
+  .video-title {/*điều chỉnh tạo kiểu cho title video*/
+    font-size: 1.1rem;/*>*/
+    font-weight: bold;/*đậm*/
+    margin-bottom: .5rem;/*lề dưới 0,5*/
+    text-decoration: none;
+    color: black;
+  }
+  .video-channel-name {/*màu channel name*/
+    margin-bottom: .1rem;
+    text-decoration: none;
+  }
+  .video-channel-name:hover {/*>màu*/
+    color: #111;
+  }
+  .video-channel-name,
+  .video-metadata{
+    color: #555;
+  }
+  .filters{
+    position: fixed;
+    left: 250px;
+    top: 60px;
+    width: calc(100% - 250px);
+    height: 60px;
+    background: #fff;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;    
+    z-index: 2;
+}
+
+.filters::-webkit-scrollbar{
+    display: none;
+}
+
+.filter-options{
+    flex: 0 0 auto;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: #f0f0f0;
+    border: 1px solid #dbdbdb;
+    text-transform: capitalize;
+    margin-right: 10px;
+    color: #242424;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.filter-options.active{
+    color: #fff;
+    background: #242424;
+}
+
+  
+.header {
+    background-color: white;
+    z-index: 99;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
+  }
+  .logo-menu{
+    height: 35px;
+  }
+  .logo-icon{
+    height: 40px;
+  }
+  .youtube-logo {/*đẩy lên 1 hàng*/
+    display: flex;
+    align-items: flex-start; 
+    
+  }
+  .search-bar {
+    display: flex;
+    flex-grow: 1;
+    margin: 0 2rem 0 4rem;
+    height: 40px;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  .search-input {
+    width: 100%;
+    font-size: inherit;
+    padding: .4em;
+    border: 1px solid rgb(161, 161, 161);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .search-btn {
+    display: flex;
+    align-items: center;
+    padding: 0 1.rem;
+    border: 1px solid rgb(161, 161, 161);
+    background-color: #F8F8F8;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    cursor: pointer;
+  }
+  .search-btn:hover {
+    background-color: #F0F0F0;
+  }
+  
+  .menu-icons {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .menu-channel-icon {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    background-color: #AAA;
+  }
+  /* side-bar */
+
+.side-bar{
+    position: fixed;
+    top: 60px;
+    left: 0;
+    min-width: 250px;
+    width: 250px;
+    height: calc(100vh - 60px);
+    background: #fff;
+    padding-right: 10px;
+}
+
+.links{
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    color: #242424;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.links img{
+    height: 25px;
+    margin-right: 20px;
+}
+
+.links:hover,
+.links.active{
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.seperator{
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
